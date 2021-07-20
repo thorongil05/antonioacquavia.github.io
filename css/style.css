@@ -3,18 +3,76 @@
 /*Google Fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Rubik:wght@500;700;900&display=swap');
 
-/*General Style*/
-body {
-    margin: 0;
-    line-height: 1.5;
-    font-size: 16px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
+
+:root {
+    --bg-color: hsl(49, 37%, 94%);
+    --bg-color-secondary: hsl(39, 42%, 49%);
+    --bg-container-color: hsl(206, 100%, 50%);
+    --bg-menu-color: hsl(215, 94%, 39%);
+
+    --text-button-std-color: black;
+    --bg-button-std-color: hsl(49, 37%, 94%);
+    --bg-button-clicked-color: hsl(206, 100%, 50%);
+
+    --typewriter-speed: 6s;
+    --typewriter-characters: 16;
 }
 
-.center-message{
+body {
+    background-color: var(--bg-color);
+    font-size: 16px;
+    font-family: 'Source Sans Pro', sans-serif;
+    min-height: 100vh;
+}
+
+.button {
+    background-color: var(--bg-button-std-color);
+    color: var(--text-button-std-color);
+    cursor: pointer;
+    width: 150px;
+    line-height: 50px;
+    height: 50px;
+    text-align: left;
+}
+
+.general-info {
+    height: 10%;
+    background-color: var(--bg-color-secondary);
+}
+
+.container {
+    height: 90%;
+    background-color: var(--bg-container-color);
+}
+
+.scroll-menu {
     margin: auto;
-    font-size: 30px;
-    font-weight: bolder;
-    color: red;
+    width: 50%;
+}
+
+.scroll-menu ul {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+
+.scroll-menu li {
+    display: table-cell;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    border-color: transparent;
+    text-align: center;
+}
+
+.scroll-menu li:hover {
+    border-color: white;
+}
+
+.scroll-menu a {
+    text-decoration: none;
+    color: white;
+}
+
+a:link:active, a:visited:active { 
+    color: white;
 }

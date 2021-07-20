@@ -1,0 +1,52 @@
+/*General Style*/
+/* body {
+    margin: 0;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    background-color: var(--bg-color);
+} */
+
+.typewriter-h1 {
+    font-size: clamp(1rem, 3vw + 1rem, 4rem);
+    font-family: 'Source Sans Pro', monospace;
+    position: relative;
+    width: max-content;
+}
+
+.typewriter-h1::before,
+.typewriter-h1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.typewriter-h1::before {
+    background: var(--bg-color);
+    animation:
+     typewriter var(--typewriter-speed) steps(var(--typewriter-characters)) 1s forwards;
+}
+
+.typewriter-h1::after {
+    width: .125em;
+    background: black;
+    animation: 
+        typewriter var(--typewriter-speed) steps(var(--typewriter-characters)) 1s forwards,
+        blink 750ms steps(var(--typewriter-characters)) infinite;
+}
+
+
+@keyframes typewriter {
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes blink {
+    to {
+        background: transparent;
+    }
+}
