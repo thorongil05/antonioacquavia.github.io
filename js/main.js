@@ -54,17 +54,17 @@ for (let i = 0; i < totalFilterBtn; i++) {
 
         const filterValue = this.getAttribute("data-filter");
         for (let k = 0; k < totalPortfolioItems ; k++) {
-            const element = portfolioItems[k];
+            const elem = portfolioItems[k];
             if(filterValue === element.getAttribute("data-category")) {
-                element.classList.add("show")
-                element.classList.remove("hide")
+                elem.classList.add("show")
+                elem.classList.remove("hide")
             } else {
-                element.classList.add("hide")
-                element.classList.remove("show")
+                elem.classList.add("hide")
+                elem.classList.remove("show")
             }
             if(filterValue === "all") {
-                element.classList.add("show")
-                element.classList.remove("hide") 
+                elem.classList.add("show")
+                elem.classList.remove("hide") 
             }
         }
     })
@@ -139,20 +139,21 @@ if (nav) {
     var navList = nav.querySelectorAll("li"),
         allSections = document.querySelectorAll(".section");
 
-    for (let i = 0; i < navList.length; i++) {
-        const element = navList[i].querySelector("a");
+    for (const entry of navList) {
+        const element = entry.querySelector("a");
         element.addEventListener("click", function() {
 
             // Remove Back-Section class
             removeBackSectionClass()
-
-            for (let i = 0; i < navList.length; i++) {
-                const element = navList[i].querySelector("a");
-                if(element.classList.contains("active")) {
+            var j = 0;
+            for (const innerEntry of navList) {
+                const elem = innerEntry.querySelector("a");
+                if(elem.classList.contains("active")) {
                     // Add  Back-Section class
-                    addBackSection(i)
+                    addBackSection(j)
                 } 
-                element.classList.remove("active");
+                elem.classList.remove("active");
+                j++;
             }
             this.classList.add("active")
             showSection(this);
@@ -168,17 +169,16 @@ function addBackSection(position) {
 }
 
 function removeBackSectionClass() {
-    for (let j = 0; j < allSections.length; j++) {
-        const element = allSections[j];
+    for (const element of allSections) {
+        console.log(element)
         element.classList.remove("back-section");
     }
 }
 
 
 function showSection(element) {
-    for (let i = 0;  i < allSections.length; i++) {
-        const element = allSections[i];
-        element.classList.remove("active");
+    for (const elem of allSections) {
+        elem.classList.remove("active");
     }
     const href = element.getAttribute("href").split("#");
     const target = href[1];
@@ -186,8 +186,8 @@ function showSection(element) {
 }
 
 function updateNav(element) {
-    for (let i = 0; i < navList.length; i++) {
-        navList[i].querySelector("a").classList.remove("active");
+    for (const entry of navList) {
+        entry.querySelector("a").classList.remove("active");
         const target = element.getAttribute("href").split("#")[1];
         if (target === navList[i].querySelector("a").getAttribute("href").split("#")[1]) {
             navList[i].querySelector("a").classList.add("active");
@@ -219,8 +219,7 @@ function asideSectionToggleBtn() {
     console.log("Toggle Click");
     aside.classList.toggle("open");
     navTogglerBtn.classList.toggle("open");
-    for (let i = 0;  i < allSections.length; i++) {
-        const element = allSections[i];
+    for (const element in allSections) {
         element.classList.toggle("open");
     }
 }
