@@ -52,11 +52,12 @@ function getSkillTemplate(skill) {
 
     var div_progress_in = document.createElement("div");
     div_progress_in.className = "progress-in";
-    div_progress_in.style = "width: 50%;";
+    div_progress_in.style = "width: " + skill.value +"%;";
     div_progress.appendChild(div_progress_in);
 
     var div_skill_percentage = document.createElement("div");
     div_skill_percentage.className = "skill-percent";
+    div_skill_percentage.textContent = skill.value + "%"
     div_progress.appendChild(div_skill_percentage);
 
     ext_div.appendChild(div_progress);
