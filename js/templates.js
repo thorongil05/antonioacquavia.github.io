@@ -35,3 +35,30 @@ function getExperienceTemplate(experience) {
 
     return div
 }
+
+function getSkillTemplate(skill) {
+    console.log(skill)
+
+    var ext_div = document.createElement("div");
+    ext_div.className = "skill-item padd-15"
+
+    var h5 = document.createElement("h5");
+    h5.textContent = skill.name;
+    ext_div.appendChild(h5);
+
+
+    var div_progress = document.createElement("div");
+    div_progress.className = "progress";
+
+    var div_progress_in = document.createElement("div");
+    div_progress_in.className = "progress-in";
+    div_progress_in.style = "width: 50%;";
+    div_progress.appendChild(div_progress_in);
+
+    var div_skill_percentage = document.createElement("div");
+    div_skill_percentage.className = "skill-percent";
+    div_progress.appendChild(div_skill_percentage);
+
+    ext_div.appendChild(div_progress);
+    return ext_div;
+}

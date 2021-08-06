@@ -7,6 +7,7 @@ window.addEventListener("load", function() {
     }, 800)
     getAsyncEducationalExperiences()
     getAsyncWorkingExperiences()
+    getAsyncSkills()
 })
 
 var options = { year: 'numeric', month: 'long', day: 'numeric' };

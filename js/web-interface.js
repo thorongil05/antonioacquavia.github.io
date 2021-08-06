@@ -45,10 +45,22 @@ function getAsyncWorkingExperiences() {
     xmlHttp.send();
 }
 
-function getSkills() {
+function getAsyncSkills() {
+    console.log('Call async skills')
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", url + '/skills', false );
-    xmlHttp.send( null );
-    console.log(xmlHttp.responseText)
-    return xmlHttp.responseText
+    xmlHttp.responseType = 'json'
+    xmlHttp.onreadystatechange = function() {
+        if(xmlHttp.readyState === 4 && xmlHttp.status === 200){
+            console.log(xmlHttp.response)
+            var skills = xmlHttp.response.skills;
+            console.log("Skills: ", skills.length);
+            var div = document.getElementById("skills");
+            div.innerHTML = '';
+            skills.forEach(element => {
+                div.appendChild(getSkillTemplate(element));
+            });
+        }
+    }
+    xmlHttp.open( "GET", url + '/skills', true);
+    xmlHttp.send();
 }
